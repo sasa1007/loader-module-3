@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 3 Loader Module Example</title>
+    
+    <!-- Vuetify 3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/vuetify@3.0.0/dist/vuetify.min.css" rel="stylesheet">
+    
+    <!-- Material Design Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <v-app>
+            <v-app-bar color="primary" dark>
+                <v-toolbar-title>Vue 3 Loader Module Example</v-toolbar-title>
+            </v-app-bar>
+            
+            <v-main>
+                <v-container>
+                    <v-row justify="center">
+                        <v-col cols="12" md="8">
+                            <v-card>
+                                <v-card-title>Loader Module Test</v-card-title>
+                                <v-card-text>
+                                    <p>Kliknite dugmad da testirate loader:</p>
+                                    <v-btn @click="showLoader" color="primary" class="ma-2">
+                                        Show Loader
+                                    </v-btn>
+                                    <v-btn @click="hideLoader" color="secondary" class="ma-2">
+                                        Hide Loader
+                                    </v-btn>
+                                    <v-btn @click="debugStore" color="info" class="ma-2">
+                                        Debug Store
+                                    </v-btn>
+                                </v-card-text>
+                            </v-card>
+                        </v-col>
+                    </v-row>
+                </v-container>
+            </v-main>
+            
+            <!-- Loader komponenta -->
+            <loader-vuex
+                :opacity="0.8"
+                :size="80"
+                color="primary"
+            />
+            
+            <!-- Debug info -->
+            <div style="position: fixed; top: 10px; right: 10px; background: white; padding: 10px; border: 1px solid #ccc; z-index: 1000;">
+                <p>Store state: {{ $store.state.loaderModule ? $store.state.loaderModule.loaderDialog : 'N/A' }}</p>
+                <p>Is loading: {{ $store.getters['loaderModule/isLoading'] || 'N/A' }}</p>
+                <p>Component: {{ $options.components['loader-vuex'] ? 'Found' : 'Not found' }}</p>
+                <p>Vue version: {{ $options._base.version }}</p>
+            </div>
+        </v-app>
+    </div>
+
+    <!-- Vue 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@3.0.0/dist/vue.global.js"></script>
+    
+    <!-- Vuetify 3 -->
+    <script src="https://cdn.jsdelivr.net/npm/vuetify@3.0.0/dist/vuetify.min.js"></script>
+    
+    <!-- Vuex 4 -->
+    <script src="https://cdn.jsdelivr.net/npm/vuex@4.0.0/dist/vuex.global.js"></script>
+    
+    <!-- Loader Module -->
+    <script src="../dist/loader-module-vue3.umd.js"></script>
+
+    <script>
+        const { createApp } = Vue
+        const { createStore } = Vuex
+        const { createVuetify } = Vuetify
+
+        // Create Vuex store
+        const store = createStore({
+            modules: {}
+        })
+
+        // Create Vuetify instance
+        const vuetify = createVuetify()
+
+        // Create Vue app
+        const app = createApp({
+            methods: {
+                showLoader() {
+                    console.log('Showing loader...')
+                    this.$store.dispatch('loaderModule/show')
+                    console.log('Store state after show:', this.$store.state.loaderModule)
+                },
+                hideLoader() {
+                    console.log('Hiding loader...')
+                    this.$store.dispatch('loaderModule/hide')
+                    console.log('Store state after hide:', this.$store.state.loaderModule)
+                },
+                debugStore() {
+                    console.log('Store state:', this.$store.state.loaderModule)
+                    console.log('Is loading getter:', this.$store.getters['loaderModule/isLoading'])
+                }
+            }
+        })
+
+        // Use plugins
+        app.use(store)
+        app.use(vuetify)
+        app.use(window['loader-module-vue3'].default || window['loader-module-vue3'], { store })
+
+        // Mount app
+        app.mount('#app')
+    </script>
+</body>
+</html>

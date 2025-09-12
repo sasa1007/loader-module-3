@@ -1,0 +1,43 @@
+{
+  "name": "loader-module-vue3",
+  "version": "1.0.0",
+  "description": "Vue 3 Loader Module with Vuetify 3 and Vuex 4",
+  "main": "dist/loader-module-vue3.common.js",
+  "module": "dist/loader-module-vue3.esm.js",
+  "unpkg": "dist/loader-module-vue3.umd.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vue-cli-service build --target lib --name loader-module-vue3 src/index.js",
+    "build:watch": "vue-cli-service build --target lib --name loader-module-vue3 src/index.js --watch",
+    "serve": "vue-cli-service serve",
+    "prepublishOnly": "yarn build"
+  },
+  "dependencies": {
+    "vue": "^3.0.0",
+    "vuetify": "^3.0.0",
+    "vuex": "^4.0.0"
+  },
+  "peerDependencies": {
+    "vue": "^3.0.0",
+    "vuetify": "^3.0.0",
+    "vuex": "^4.0.0"
+  },
+  "devDependencies": {
+    "@vue/cli-service": "^5.0.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "sass": "^1.32.0",
+    "sass-loader": "^10.0.0"
+  },
+  "keywords": [
+    "vue3",
+    "vuetify3",
+    "vuex4",
+    "loader",
+    "spinner",
+    "overlay"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
