@@ -1,5 +1,5 @@
 export const loaderModule = {
-  namespaced: true,
+  namespaced: false,
   state() {
     return {
       loaderDialog: false
