@@ -5,11 +5,18 @@ module.exports = defineConfig({
   css: {
     extract: false
   },
-  configureWebpack: {
-    externals: {
-      'vue': 'Vue',
-      'vuetify': 'Vuetify',
-      'vuex': 'Vuex'
-    }
+  chainWebpack: config => {
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .tap(options => {
+        return {
+          ...options,
+          compilerOptions: {
+            ...options.compilerOptions,
+            isCustomElement: tag => tag.startsWith('v-')
+          }
+        }
+      })
   }
 })

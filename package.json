@@ -1,16 +1,19 @@
 {
-  "name": "loader-module-vue3",
-  "version": "1.0.0",
+  "name": "loader-module",
+  "version": "3.0.0",
   "description": "Vue 3 Loader Module with Vuetify 3 and Vuex 4",
-  "main": "dist/loader-module-vue3.common.js",
-  "module": "dist/loader-module-vue3.esm.js",
-  "unpkg": "dist/loader-module-vue3.umd.js",
+  "main": "dist/loader-module.common.js",
+  "module": "dist/loader-module.esm.js",
+  "unpkg": "dist/loader-module.umd.min.js",
   "files": [
-    "dist"
+    "dist",
+    "src",
+    "*.json",
+    "*.js"
   ],
   "scripts": {
-    "build": "vue-cli-service build --target lib --name loader-module-vue3 src/index.js",
-    "build:watch": "vue-cli-service build --target lib --name loader-module-vue3 src/index.js --watch",
+    "build": "vue-cli-service build --target lib --name loader-module src/index.js",
+    "build:watch": "vue-cli-service build --target lib --name loader-module src/index.js --watch",
     "serve": "vue-cli-service serve",
     "prepublishOnly": "yarn build"
   },
@@ -38,6 +41,6 @@
     "spinner",
     "overlay"
   ],
-  "author": "Your Name",
+  "author": "Backend2",
   "license": "MIT"
 }
