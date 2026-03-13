@@ -38,10 +38,7 @@ export default {
   },
   computed: {
     isLoading() {
-      // Privremeni hard‑code za debug – uvek prikazuj loader
-      return true;
-      // Kada završimo debug, vratiti na:
-      // return this.$store.state.loaderModule.loaderDialog;
+      return this.$store.state.loaderModule.loaderDialog;
     },
   },
 };
