@@ -1,6 +1,6 @@
 {
   "name": "loader-module",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Vue 3 Loader Module with Vuetify 3 and Vuex 4",
   "main": "dist/loader-module.common.js",
   "module": "dist/loader-module.esm.js",
