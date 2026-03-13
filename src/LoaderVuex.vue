@@ -1,14 +1,15 @@
 <template>
   <v-overlay
+    class="loader-vuex-overlay"
     :model-value="isLoading"
-    :opacity="opacity"
     :z-index="zIndex"
+    scrim="rgba(15, 23, 42, 0.72)"
   >
     <v-progress-circular
       indeterminate
       :size="size"
       :color="color"
-    ></v-progress-circular>
+    />
   </v-overlay>
 </template>
 
@@ -16,10 +17,6 @@
 export default {
   name: 'loader-vuex',
   props: {
-    opacity: {
-      type: Number,
-      default: 0.7
-    },
     zIndex: {
       type: Number,
       default: 2000
@@ -30,7 +27,7 @@ export default {
     },
     color: {
       type: String,
-      default: 'primary'
+      default: 'white'
     }
   },
   computed: {
@@ -42,7 +39,7 @@ export default {
 </script>
 
 <style scoped>
-.v-overlay {
+.loader-vuex-overlay {
   display: flex;
   align-items: center;
   justify-content: center;
