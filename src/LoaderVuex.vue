@@ -1,5 +1,9 @@
 <template>
-  <v-overlay :model-value="isLoading" :opacity="opacity" :z-index="zIndex">
+  <v-overlay
+    :model-value="isLoading"
+    :opacity="opacity"
+    :z-index="zIndex"
+  >
     <v-progress-circular
       indeterminate
       :size="size"
@@ -18,7 +22,7 @@ export default {
     },
     zIndex: {
       type: Number,
-      default: 5
+      default: 2000
     },
     size: {
       type: Number,
