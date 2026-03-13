@@ -1,21 +1,27 @@
 <template>
-  <v-overlay
+  <VOverlay
     class="loader-vuex-overlay"
     :model-value="isLoading"
     :z-index="zIndex"
     scrim="rgba(15, 23, 42, 0.72)"
   >
-    <v-progress-circular
+    <VProgressCircular
       indeterminate
       :size="size"
       :color="color"
     />
-  </v-overlay>
+  </VOverlay>
 </template>
 
 <script>
+import { VOverlay, VProgressCircular } from 'vuetify/components';
+
 export default {
   name: 'loader-vuex',
+  components: {
+    VOverlay,
+    VProgressCircular,
+  },
   props: {
     zIndex: {
       type: Number,
@@ -40,6 +46,8 @@ export default {
 
 <style scoped>
 .loader-vuex-overlay {
+  position: fixed;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;

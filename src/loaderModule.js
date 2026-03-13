@@ -10,20 +10,10 @@ export const loaderModule = {
   },
   mutations: {
     closeLoader(state) {
-      console.log('closeLoader')
       state.loaderDialog = false
     },
     openLoader(state) {
-      console.log('openLoader')
       state.loaderDialog = true
-    },
-  },
-  actions: {
-    show({ commit }) {
-      commit('openLoader')
-    },
-    hide({ commit }) {
-      commit('closeLoader')
     }
   }
 }
