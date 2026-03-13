@@ -19,12 +19,12 @@
   },
   "dependencies": {
     "vue": "^3.0.0",
-    "vuetify": "^3.0.0",
+    "vuetify": "^3.0.0 || ^4.0.0",
     "vuex": "^4.0.0"
   },
   "peerDependencies": {
     "vue": "^3.0.0",
-    "vuetify": "^3.0.0",
+    "vuetify": "^3.0.0 || ^4.0.0",
     "vuex": "^4.0.0"
   },
   "devDependencies": {
