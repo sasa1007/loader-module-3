@@ -1,8 +1,8 @@
 <template>
   <v-overlay
+    class="loader-vuex-overlay"
     :model-value="isLoading"
     :z-index="zIndex"
-    class="align-center justify-center"
     scrim="rgba(15, 23, 42, 0.72)"
   >
     <v-progress-circular
@@ -39,11 +39,11 @@ export default {
 </script>
 
 <style scoped>
-.align-center {
+.loader-vuex-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
   align-items: center;
-}
-
-.justify-center {
   justify-content: center;
 }
 </style>
